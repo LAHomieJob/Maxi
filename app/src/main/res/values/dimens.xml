@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="single_line_item">72dp</dimen>
+    <dimen name="image_width">100dp</dimen>
+    <dimen name="image_height">56dp</dimen>
+    <dimen name="item_layout_padding">16dp</dimen>
+</resources>
