@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/primaryDarkColor</item>
-        <item name="textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textSize">16sp</item>
     </style>
 

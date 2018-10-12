@@ -1,8 +1,8 @@
-package com.example.alexey.maxi.di.modules
+package com.example.alexey.maxi.di.global.modules
 
 import android.content.Context
 import android.util.Log
-import com.example.alexey.maxi.network.ApiService
+import com.example.alexey.maxi.data.network.ApiService
 import com.example.alexey.maxi.util.isConnected
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import dagger.Module

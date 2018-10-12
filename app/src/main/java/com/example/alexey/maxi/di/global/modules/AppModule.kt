@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.di.modules
+package com.example.alexey.maxi.di.global.modules
 
 import android.content.Context
 import dagger.Module

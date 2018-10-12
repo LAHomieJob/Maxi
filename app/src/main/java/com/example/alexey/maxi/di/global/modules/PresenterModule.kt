@@ -1,7 +1,6 @@
-package com.example.alexey.maxi.di.modules
+package com.example.alexey.maxi.di.global.modules
 
-import com.example.alexey.maxi.network.ApiService
-import com.example.alexey.maxi.ui.activity.MainPresenter
+import com.example.alexey.maxi.data.network.ApiService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

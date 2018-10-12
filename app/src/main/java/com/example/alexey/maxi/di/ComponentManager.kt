@@ -1,9 +1,8 @@
 package com.example.alexey.maxi.di
 
 import android.content.Context
-import com.example.alexey.maxi.di.modules.AppModule
-import com.example.alexey.maxi.di.modules.components.AppComponent
-import com.example.alexey.maxi.di.modules.components.DaggerAppComponent
+import com.example.alexey.maxi.di.components.AppComponent
+import com.example.alexey.maxi.di.global.modules.AppModule
 
 class ComponentManager(context: Context) {
 
@@ -12,4 +11,8 @@ class ComponentManager(context: Context) {
                 appModule(AppModule(context)).
                 build()
     }
+
+    fun provideRubricsFragmentComponent() = appComponent.plusRubricsFragmentComponent()
+
+    fun provideStockFragmentComponent() = appComponent.plusStocksFragmentComponent()
 }
