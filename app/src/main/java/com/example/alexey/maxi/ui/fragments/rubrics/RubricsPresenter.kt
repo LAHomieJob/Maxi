@@ -18,7 +18,7 @@ class RubricsPresenter(val apiService: ApiService) : MvpPresenter<RubricsView>()
     private fun loadRootRubrics() =
             try {
                 GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT, null, {
-                    apiService.retriveCategories().await().body()?.let {
+                    apiService.retriveRubrics().await().body()?.let {
                         //Get the list of root rubrics with null parent
                         val filteredList = it.getOnlyParentRubrics()
                         viewState.showListOfRubrics(filteredList)

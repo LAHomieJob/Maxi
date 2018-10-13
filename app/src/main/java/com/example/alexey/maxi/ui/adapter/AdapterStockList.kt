@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alexey.maxi.R
-import com.example.alexey.maxi.data.network.StockItem
+import com.example.alexey.maxi.domain.models.StockItem
 import com.squareup.picasso.Picasso
 
 

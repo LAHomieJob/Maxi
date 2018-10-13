@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alexey.maxi.R
-import com.example.alexey.maxi.data.network.RubrickItem
 
 class AdapterRubrics(val click: OnClick, val list: List<RubrickItem>) :
         RecyclerView.Adapter<AdapterRubrics.RubricViewHolder>() {

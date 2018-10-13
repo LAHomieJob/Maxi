@@ -1,7 +1,7 @@
 package com.example.alexey.maxi.ui.fragments.stock
 
 import com.arellomobile.mvp.MvpView
-import com.example.alexey.maxi.data.network.StockItem
+import com.example.alexey.maxi.domain.models.StockItem
 
 interface StockView : MvpView {
     fun showStocks(list: List<StockItem>)
