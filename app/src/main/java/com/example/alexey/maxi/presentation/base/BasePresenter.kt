@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.base
+package com.example.alexey.maxi.presentation.base
 
 import com.arellomobile.mvp.MvpPresenter
 import com.arellomobile.mvp.MvpView

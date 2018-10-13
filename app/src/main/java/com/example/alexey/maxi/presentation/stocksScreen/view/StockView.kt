@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.ui.fragments.stock
+package com.example.alexey.maxi.presentation.stocksScreen.view
 
 import com.arellomobile.mvp.MvpView
 import com.example.alexey.maxi.domain.models.StockItem

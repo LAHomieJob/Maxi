@@ -6,7 +6,7 @@ import com.example.alexey.maxi.util.findCongruentElement
 import io.reactivex.Observable.zip
 import io.reactivex.functions.BiFunction
 
-class StockScreemInteractor(val repository: StockRepository) {
+class StockScreemInteractor(private val repository: StockRepository) {
 
     fun retrieveListOfStockItemsSortedByRubrics(parentId: Int) = zip(
             repository.retrieveListOfChildRubricsIds(parentId),

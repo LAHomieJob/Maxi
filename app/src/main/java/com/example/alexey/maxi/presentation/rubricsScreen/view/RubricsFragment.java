@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.ui.fragments.rubrics;
+package com.example.alexey.maxi.presentation.rubricsScreen.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,32 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.alexey.maxi.R;
 import com.example.alexey.maxi.di.DI;
 import com.example.alexey.maxi.di.components.RubricsFragmentComponent;
-import com.example.alexey.maxi.domain.models.RubrickItem;
-import com.example.alexey.maxi.ui.adapter.AdapterRubrics;
-import com.example.alexey.maxi.ui.adapter.OnClick;
-import com.example.alexey.maxi.ui.fragments.stock.StockFragment;
+import com.example.alexey.maxi.domain.models.Rubric;
+import com.example.alexey.maxi.presentation.base.BaseFragment;
+import com.example.alexey.maxi.presentation.rubricsScreen.presenter.RubricsPresenter;
 import com.example.alexey.maxi.util.ExtensionsKt;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class RubricsFragment extends MvpAppCompatFragment implements RubricsView, OnClick {
+public class RubricsFragment extends BaseFragment implements RubricsView {
 
     @Inject
     @InjectPresenter
     RubricsPresenter presenter;
     private RubricsFragmentComponent component;
     private AdapterRubrics adapter;
-    private RecyclerView list;
+    private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
 
     @ProvidePresenter
@@ -51,9 +50,11 @@ public class RubricsFragment extends MvpAppCompatFragment implements RubricsView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.rubrics_fragment, null);
-        list = view.findViewById(R.id.list_item);
+        recyclerView = view.findViewById(R.id.list_item);
         layoutManager = new LinearLayoutManager
                 (getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        presenter.showParentRubrics();
         return view;
     }
 
@@ -65,11 +66,14 @@ public class RubricsFragment extends MvpAppCompatFragment implements RubricsView
     }
 
     @Override
-    public void showListOfRubrics(@NotNull List<RubrickItem> items) {
-        adapter = new AdapterRubrics(this, items);
-        list.setLayoutManager(layoutManager);
-        list.setAdapter(adapter);
+    public void showListOfRubrics(@Nullable List<Rubric> list) {
+        adapter = new AdapterRubrics(rubric -> {
+            presenter.navigateToStockScreen(rubric.getParentRubricId());
+            return null;
+        }, list);
+        recyclerView.setAdapter(adapter);
     }
+
 
     @Override
     public void showError(@NotNull String message) {
@@ -77,10 +81,7 @@ public class RubricsFragment extends MvpAppCompatFragment implements RubricsView
     }
 
     @Override
-    public void onItemClick(int position) {
-        adapter.getList();
-        getFragmentManager().beginTransaction()
-                .replace(R.id.frame_container, StockFragment.createInstance(rubricId))
-                .commit();
+    public void onBackPressed() {
+        presenter.onBackPressed();
     }
 }

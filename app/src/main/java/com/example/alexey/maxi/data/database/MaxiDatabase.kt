@@ -6,5 +6,5 @@ import com.example.alexey.maxi.domain.models.Rubric
 
 @Database(entities = arrayOf(Rubric::class), version = 1)
 abstract class MaxiDatabase : RoomDatabase() {
-    abstract fun createDao(): Dao
+    abstract fun createDao(): DaoMaxi
 }

@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.ui.adapter
+package com.example.alexey.maxi.presentation.stocksScreen.view
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.example.alexey.maxi.R
 import com.example.alexey.maxi.domain.models.StockItem
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.product_resource.view.*
 
 
 class AdapterStockList(val list: List<StockItem>) :
@@ -19,30 +20,20 @@ class AdapterStockList(val list: List<StockItem>) :
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: StockViewHolder, position: Int) {
-        val stockItem = list[position]
-        holder.apply {
-            bindTitle(stockItem.title)
-            loadImage(stockItem.image)
-            bindPrice(stockItem.priceNew)
-        }
+        holder.bind(list[position])
     }
 
     class StockViewHolder(val containerView: View) : RecyclerView.ViewHolder(containerView) {
 
-        fun bindTitle(title: String){
-            containerView.stock.text = title
-        }
-
-        fun loadImage(url: String){
+        fun bind(item: StockItem) {
+            containerView.stock.text = item.title
             Picasso.get()
-                    .load(url)
+                    .load(item.image)
                     .fit()
                     .placeholder(R.drawable.maksi_placeholder)
                     .into(containerView.image_stock)
-        }
-
-        fun bindPrice(price: Double){
-            containerView.price.text = price.toString()
+            containerView.price.text = item.priceNew.toString()
+            containerView.rubrics.text = item.rubricName.toString()
         }
     }
 

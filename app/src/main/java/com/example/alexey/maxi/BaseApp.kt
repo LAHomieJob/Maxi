@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.base
+package com.example.alexey.maxi
 
 import android.app.Application
 import com.arellomobile.mvp.MvpFacade

@@ -1,4 +1,4 @@
-package com.example.alexey.maxi.base
+package com.example.alexey.maxi.presentation.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle

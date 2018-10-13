@@ -8,7 +8,7 @@ import com.example.alexey.maxi.domain.models.Rubric
 import io.reactivex.Observable
 
 @Dao
-interface Dao {
+interface DaoMaxi {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllRubrics(list: List<Rubric>)

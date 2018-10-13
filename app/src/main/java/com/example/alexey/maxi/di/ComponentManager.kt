@@ -3,6 +3,8 @@ package com.example.alexey.maxi.di
 import android.content.Context
 import com.example.alexey.maxi.di.components.AppComponent
 import com.example.alexey.maxi.di.global.modules.AppModule
+import com.example.alexey.maxi.di.modules.rubricsScreen.RubricsFragmentModule
+import com.example.alexey.maxi.di.modules.stocksScreen.StockFragmentModule
 
 class ComponentManager(context: Context) {
 
@@ -12,7 +14,8 @@ class ComponentManager(context: Context) {
                 build()
     }
 
-    fun provideRubricsFragmentComponent() = appComponent.plusRubricsFragmentComponent()
+    fun provideRubricsFragmentComponent() = appComponent.plusRubricsFragmentComponent(RubricsFragmentModule())
 
-    fun provideStockFragmentComponent() = appComponent.plusStocksFragmentComponent()
+    fun provideStockFragmentComponent(parentId: Int) =
+            appComponent.plusStocksFragmentComponent(StockFragmentModule(parentId))
 }
