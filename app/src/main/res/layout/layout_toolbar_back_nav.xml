@@ -7,4 +7,4 @@
     android:elevation="4dp"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
-    app:titleTextColor="@android:color/white" />
+    app:titleTextColor="@color/white" />

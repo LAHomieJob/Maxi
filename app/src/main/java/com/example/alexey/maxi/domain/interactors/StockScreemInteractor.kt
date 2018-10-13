@@ -9,7 +9,7 @@ import io.reactivex.functions.BiFunction
 class StockScreemInteractor(private val repository: StockRepository) {
 
     fun retrieveListOfStockItemsSortedByRubrics(parentId: Int) = zip(
-            repository.retrieveListOfChildRubricsIds(parentId),
+            repository.retrieveListOfChildRubricsIds(parentId).toObservable(),
             repository.retrieveListOfStocks(),
             BiFunction<List<Int>, List<StockItem>, List<StockItem>>
             { listRubric, listStockItem ->

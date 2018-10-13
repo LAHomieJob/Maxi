@@ -20,6 +20,6 @@ class RubricsPresenter(
         rubricsScreenInteractor.retrieveListOfParentRubrics().await().let { viewState.showListOfRubrics(it) }
     }
 
-    fun navigateToStockScreen(parentId: Int) = router.navigateTo(ScreenKeys.STOCK_SCREEN)
+    fun navigateToStockScreen(parentId: Int) = router.navigateTo(ScreenKeys.STOCK_SCREEN, parentId)
 
 }

@@ -13,13 +13,13 @@ import com.google.gson.annotations.SerializedName
 data class Rubric(
 
         @PrimaryKey
-        val id: Int?,
+        val id: Int,
 
         val name: String,
 
         @ColumnInfo(name = "parent_rubric_id")
         @SerializedName("parent_rubric_id")
-        val parentRubricId: Int)
+        val parentRubricId: Int?)
 
 data class Rubrics(val response: List<Rubric>)
 

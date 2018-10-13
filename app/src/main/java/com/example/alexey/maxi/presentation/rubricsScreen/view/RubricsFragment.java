@@ -72,7 +72,7 @@ public class RubricsFragment extends BaseFragment implements RubricsView {
     @Override
     public void showListOfRubrics(@Nullable List<Rubric> list) {
         adapter = new AdapterRubrics(rubric -> {
-            presenter.navigateToStockScreen(rubric.getParentRubricId());
+            presenter.navigateToStockScreen(rubric.getId());
             return null;
         }, list);
         recyclerView.setAdapter(adapter);

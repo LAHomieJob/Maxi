@@ -15,6 +15,7 @@ class RubricsRepositoryImpl(val apiService: ApiService,
         if (list != null) {
             list = apiService.retriveRubrics().await().body()!!.response
             dao.insertAllRubrics(list)
+            list = dao.selectAllParentRubrics()
         }
         list
     }

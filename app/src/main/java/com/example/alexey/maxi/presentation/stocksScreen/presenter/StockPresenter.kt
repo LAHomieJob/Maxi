@@ -15,7 +15,7 @@ class StockPresenter(
 ) : BasePresenter<StockView>(router) {
 
     fun showListOfStocks() =
-            interactor.retrieveListOfStockItemsSortedByRubrics(parentId).subscribeOn(AndroidSchedulers.mainThread()).subscribe({
+            interactor.retrieveListOfStockItemsSortedByRubrics(parentId).observeOn(AndroidSchedulers.mainThread()).subscribe({
                 viewState.showStocks(it)
             })
 
