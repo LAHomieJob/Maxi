@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class RubricsFragment extends BaseFragment implements RubricsView {
     private AdapterRubrics adapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
+    private Toolbar toolbar;
 
     @ProvidePresenter
     RubricsPresenter providePresenter() {
@@ -50,6 +52,8 @@ public class RubricsFragment extends BaseFragment implements RubricsView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.rubrics_fragment, null);
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
         recyclerView = view.findViewById(R.id.list_item);
         layoutManager = new LinearLayoutManager
                 (getContext(), LinearLayoutManager.VERTICAL, false);

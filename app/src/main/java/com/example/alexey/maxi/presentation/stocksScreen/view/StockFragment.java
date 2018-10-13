@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class StockFragment extends BaseFragment implements StockView {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private AdapterStockList adapter;
+    private Toolbar toolbar;
 
     @ProvidePresenter
     StockPresenter providePresenter() {
@@ -60,6 +62,9 @@ public class StockFragment extends BaseFragment implements StockView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.stock_fragment, null);
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.list_of_stocks);
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
         recyclerView = view.findViewById(R.id.list_item);
         layoutManager = new LinearLayoutManager
                 (getContext(), LinearLayoutManager.VERTICAL, false);
@@ -67,7 +72,6 @@ public class StockFragment extends BaseFragment implements StockView {
         presenter.showListOfStocks();
         return view;
     }
-
 
     @Override
     public void onDestroy() {

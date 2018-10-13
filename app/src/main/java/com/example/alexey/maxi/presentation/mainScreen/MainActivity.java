@@ -11,6 +11,7 @@ import com.example.alexey.maxi.di.DI;
 import com.example.alexey.maxi.presentation.base.BaseActivity;
 import com.example.alexey.maxi.presentation.navigation.ScreenKeys;
 import com.example.alexey.maxi.presentation.rubricsScreen.view.RubricsFragment;
+import com.example.alexey.maxi.presentation.stocksScreen.view.StockFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity {
                     case ScreenKeys.RUBRICS_SCREEN:
                         return new RubricsFragment();
                     case ScreenKeys.STOCK_SCREEN:
+                        return StockFragment.createInstance((Integer) data);
                     default:
                         throw new IllegalArgumentException("Несуществующий ключ экрана");
                 }
