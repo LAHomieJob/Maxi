@@ -16,7 +16,12 @@ class RubricsPresenter(
         private val rubricsScreenInteractor: RubricsScreenInteractor
 ) : BasePresenter<RubricsView>(router) {
 
-    fun showParentRubrics() = GlobalScope.launch(Dispatchers.Main) {
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        showParentRubrics()
+    }
+
+    private fun showParentRubrics() = GlobalScope.launch(Dispatchers.Main) {
         rubricsScreenInteractor.retrieveListOfParentRubrics().await().let { viewState.showListOfRubrics(it) }
     }
 

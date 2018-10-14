@@ -62,14 +62,13 @@ public class StockFragment extends BaseFragment implements StockView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.stock_fragment, null);
-        toolbar = view.findViewById(R.id.toolbar);
+        toolbar = view.findViewById(R.id.toolbar_stocks);
         toolbar.setTitle(R.string.list_of_stocks);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
         recyclerView = view.findViewById(R.id.list_item);
         layoutManager = new LinearLayoutManager
                 (getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        presenter.showListOfStocks();
         return view;
     }
 

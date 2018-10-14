@@ -4,5 +4,5 @@ import com.example.alexey.maxi.domain.models.Rubric
 import kotlinx.coroutines.experimental.Deferred
 
 interface RubricsRepository {
-    suspend fun retrieveListOfParentRubrics(): Deferred<List<Rubric>?>
+    fun retrieveListOfParentRubrics(): Deferred<List<Rubric>?>
 }

@@ -2,14 +2,17 @@ package com.example.alexey.maxi.domain.models
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /*
- * Модель Rubric используется для сериализации сетевых запросов и хранения в базе данных
+ * Модель Rubric используется для сериализации сетевых запросов и хранения
+ * информации о рубриках в базе данных
  * */
-@Entity(tableName = "rubrics")
+@Entity(tableName = "rubrics",
+        indices = arrayOf(Index("id")))
 data class Rubric(
 
         @PrimaryKey

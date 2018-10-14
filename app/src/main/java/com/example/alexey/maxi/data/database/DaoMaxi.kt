@@ -16,11 +16,11 @@ interface DaoMaxi {
     @Query("SELECT * FROM rubrics WHERE parent_rubric_id IS NULL")
     fun selectAllParentRubrics(): List<Rubric>?
 
-    //Запрос возвращает список id-шников дочерних рубрик
+    //Запрос возвращает список из id дочерних рубрик
     @Query("SELECT id FROM rubrics WHERE parent_rubric_id = :parentId")
     fun selectChildRubricsByIdParentId(parentId: Int): Single<List<Int>>
 
-    //Запрос возвращает список наименований рубрик по массиву из id
+    //Запрос возвращает список наименований рубрик по массиву из id рубрик
     @Query("SELECT name FROM rubrics where id IN (:listId)")
     fun selectRubricsName(listId: List<Int>): Single<List<String>>
 }

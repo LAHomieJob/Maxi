@@ -52,13 +52,12 @@ public class RubricsFragment extends BaseFragment implements RubricsView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.rubrics_fragment, null);
-        toolbar = view.findViewById(R.id.toolbar);
+        toolbar = view.findViewById(R.id.toolbar_rubrics);
         toolbar.setTitle(R.string.app_name);
         recyclerView = view.findViewById(R.id.list_item);
         layoutManager = new LinearLayoutManager
                 (getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        presenter.showParentRubrics();
         return view;
     }
 

@@ -30,10 +30,11 @@ class AdapterStockList(val list: List<StockItem>) :
             Picasso.get()
                     .load(item.image)
                     .fit()
+                    .noFade()
                     .placeholder(R.drawable.maksi_placeholder)
                     .into(containerView.image_stock)
-            containerView.price.text = item.priceNew.toString()
-            containerView.rubrics.text = item.rubricName.toString()
+            containerView.price.text = "${item.priceNew} р."
+            containerView.rubrics.text = item.rubricName?.joinToString()
         }
     }
 

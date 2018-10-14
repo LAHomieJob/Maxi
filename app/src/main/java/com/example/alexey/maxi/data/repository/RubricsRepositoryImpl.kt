@@ -10,13 +10,13 @@ import kotlinx.coroutines.experimental.async
 class RubricsRepositoryImpl(val apiService: ApiService,
                             val dao: DaoMaxi) : RubricsRepository {
 
-    override suspend fun retrieveListOfParentRubrics() = GlobalScope.async(Dispatchers.IO) {
-        var list = dao.selectAllParentRubrics()
-        if (list != null) {
-            list = apiService.retriveRubrics().await().body()!!.response
-            dao.insertAllRubrics(list)
-            list = dao.selectAllParentRubrics()
+    override fun retrieveListOfParentRubrics() = GlobalScope.async(Dispatchers.IO) {
+        var dbRubricsList = dao.selectAllParentRubrics()
+        if (dbRubricsList != null) {
+            //Если в БД отсутствуют рубрики, то получить из сети и поместить в БД
+            apiService.retriveRubrics().await().body()?.response.let { dao.insertAllRubrics(it!!) }
+            dbRubricsList = dao.selectAllParentRubrics()
         }
-        list
+        dbRubricsList
     }
 }

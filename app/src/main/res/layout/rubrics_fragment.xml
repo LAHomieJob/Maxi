@@ -5,18 +5,10 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_rubrics"
         layout="@layout/layout_toolbar_basic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/rubrics"
-        style="@style/TextHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/list_of_rubrics" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_item"

@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar_basic"
+        android:id="@+id/toolbar_stocks"
+        layout="@layout/layout_toolbar_back_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

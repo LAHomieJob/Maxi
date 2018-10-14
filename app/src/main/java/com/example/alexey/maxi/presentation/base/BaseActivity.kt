@@ -1,6 +1,5 @@
 package com.example.alexey.maxi.presentation.base
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import com.arellomobile.mvp.MvpAppCompatActivity
 import ru.terrakok.cicerone.Navigator
@@ -16,7 +15,7 @@ abstract class BaseActivity : MvpAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     override fun onResumeFragments() {

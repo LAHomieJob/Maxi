@@ -14,9 +14,14 @@ class StockPresenter(
         private val parentId: Int
 ) : BasePresenter<StockView>(router) {
 
-    fun showListOfStocks() =
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        showListOfStocks()
+    }
+
+    private fun showListOfStocks() =
             interactor.retrieveListOfStockItemsSortedByRubrics(parentId).observeOn(AndroidSchedulers.mainThread()).subscribe({
                 viewState.showStocks(it)
-            })
+            }) { viewState.showError("Ошибка загрузки списка товаров") }
 
 }

@@ -26,7 +26,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:fontFamily="@font/lekton_bold"
         app:layout_constraintEnd_toStartOf="@+id/price"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,11 +39,12 @@
         style="@style/TextHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
         app:fontFamily="@font/lekton_regular"
@@ -51,7 +52,10 @@
         app:layout_constraintEnd_toStartOf="@+id/price"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/image_stock"
-        tools:text="Строительные материалы, горючее" />
+        android:singleLine="false"
+        app:layout_constraintTop_toBottomOf="@+id/stock"
+        tools:maxLines="2"
+        tools:text="Строительные материалы, горючее, новые странные материалы" />
 
     <TextView
         android:id="@+id/price"

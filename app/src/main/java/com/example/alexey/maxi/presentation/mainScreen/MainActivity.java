@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import com.example.alexey.maxi.R;
 import com.example.alexey.maxi.di.DI;
 import com.example.alexey.maxi.presentation.base.BaseActivity;
+import com.example.alexey.maxi.presentation.base.BaseFragment;
 import com.example.alexey.maxi.presentation.navigation.ScreenKeys;
 import com.example.alexey.maxi.presentation.rubricsScreen.view.RubricsFragment;
 import com.example.alexey.maxi.presentation.stocksScreen.view.StockFragment;
@@ -34,7 +35,9 @@ public class MainActivity extends BaseActivity {
         DI.INSTANCE.componentManager().getAppComponent().inject(this);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
-        router.navigateTo(ScreenKeys.RUBRICS_SCREEN);
+        if (savedInstanceState == null) {
+            router.navigateTo(ScreenKeys.RUBRICS_SCREEN);
+        }
     }
 
     @NotNull
@@ -58,5 +61,16 @@ public class MainActivity extends BaseActivity {
                 }
             }
         };
+    }
+
+    @Override
+    public void onBackPressed() {
+        BaseFragment fragment = (BaseFragment)
+                getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        if (fragment instanceof RubricsFragment) {
+            finish();
+        } else {
+            fragment.onBackPressed();
+        }
     }
 }
