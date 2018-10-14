@@ -6,6 +6,6 @@ import io.reactivex.Single
 
 interface StockRepository {
     fun retrieveListOfChildRubricsIds(parenId: Int): Single<List<Int>>
-    fun retrieveListOfRubricsName(list: List<Int>): Single<List<String>>
+    fun retrieveListOfRubricsName(list: List<Int>): List<String>
     fun retrieveListOfStocks(): Observable<List<StockItem>>
 }

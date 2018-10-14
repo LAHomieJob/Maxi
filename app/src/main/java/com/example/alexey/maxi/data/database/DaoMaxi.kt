@@ -22,5 +22,5 @@ interface DaoMaxi {
 
     //Запрос возвращает список наименований рубрик по массиву из id рубрик
     @Query("SELECT name FROM rubrics where id IN (:listId)")
-    fun selectRubricsName(listId: List<Int>): Single<List<String>>
+    fun selectRubricsName(listId: List<Int>): List<String>
 }

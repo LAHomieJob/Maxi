@@ -1,5 +1,7 @@
-package com.example.alexey.maxi.di.components
+package com.example.alexey.maxi.di.global.components
 
+import com.example.alexey.maxi.di.components.RubricsFragmentComponent
+import com.example.alexey.maxi.di.components.StocksFragmentComponent
 import com.example.alexey.maxi.di.global.modules.*
 import com.example.alexey.maxi.di.modules.rubricsScreen.RubricsFragmentModule
 import com.example.alexey.maxi.di.modules.stocksScreen.StockFragmentModule

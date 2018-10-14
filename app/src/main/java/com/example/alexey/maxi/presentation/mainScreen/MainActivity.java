@@ -24,6 +24,8 @@ import ru.terrakok.cicerone.android.SupportAppNavigator;
 
 public class MainActivity extends BaseActivity {
 
+    //Так как MainActivty является корневой и не обновляет View, то мы не следуем паттерну MVP и
+    //инъицируем роутер прямо во View
     @Inject
     Router router;
 
@@ -35,6 +37,7 @@ public class MainActivity extends BaseActivity {
         DI.INSTANCE.componentManager().getAppComponent().inject(this);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
+        //Переход на стартовый фрагмент экрана "Рубрики" осуществляется при первом запуске MainActivity
         if (savedInstanceState == null) {
             router.navigateTo(ScreenKeys.RUBRICS_SCREEN);
         }
@@ -67,6 +70,7 @@ public class MainActivity extends BaseActivity {
     public void onBackPressed() {
         BaseFragment fragment = (BaseFragment)
                 getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        //На экране "Рубрики" при нажатии кнопки Назад завершить приложение
         if (fragment instanceof RubricsFragment) {
             finish();
         } else {

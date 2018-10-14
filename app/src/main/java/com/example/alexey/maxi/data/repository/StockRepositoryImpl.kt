@@ -13,7 +13,7 @@ class StockRepositoryImpl(val apiService: ApiService, val dao: DaoMaxi) : StockR
             dao.selectChildRubricsByIdParentId(parenId).subscribeOn(Schedulers.io())
 
     override fun retrieveListOfRubricsName(list: List<Int>) =
-            dao.selectRubricsName(list).subscribeOn(Schedulers.io())
+            dao.selectRubricsName(list)
 
     override fun retrieveListOfStocks(): Observable<List<StockItem>> =
             apiService.retrieveListOfStocks().subscribeOn(Schedulers.io()).map { it.response }

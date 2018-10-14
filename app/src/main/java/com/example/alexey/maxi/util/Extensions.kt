@@ -6,6 +6,10 @@ import android.net.ConnectivityManager
 import android.support.annotation.RequiresPermission
 import android.widget.Toast
 
+/**
+ * Метод осуществляет проверку наличия сети
+ * @return true, если сеть на устройстве доступна
+ **/
 @RequiresPermission(value = Manifest.permission.ACCESS_NETWORK_STATE)
 fun Context.isConnected(): Boolean {
     val connectivityManager = this

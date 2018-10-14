@@ -10,17 +10,19 @@ import io.reactivex.functions.BiFunction
 class StockScreemInteractor(private val repository: StockRepository) {
 
     fun retrieveListOfStockItemsSortedByRubrics(parentId: Int): Observable<List<StockItem>> = zip(
+            //Получение списка id дочерник рубрик с общим parentId
             repository.retrieveListOfChildRubricsIds(parentId).toObservable(),
+            //Получение общего списка товаров из сети/кэша
             repository.retrieveListOfStocks(),
             BiFunction<List<Int>, List<StockItem>, List<StockItem>>
             { listRubricIds, listStockItem ->
                 listStockItem.filter {
-                    //Фильтрация списка
+                    //Фильтрация списка по совпадающим id рубрик
                     it.rubrics.findCongruentElement(listRubricIds)
                 }.apply {
                     //Присвоение списка имен
                     forEach {
-                        repository.retrieveListOfRubricsName(it.rubrics).subscribe { list -> it.rubricName = list }
+                        it.rubricName = repository.retrieveListOfRubricsName(it.rubrics)
                     }
                 }
             }
